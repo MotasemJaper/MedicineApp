@@ -42,7 +42,7 @@ public class AdapterForHomePatientShowTopicOne extends RecyclerView.Adapter<Adap
     public void onBindViewHolder(@NonNull AdapterForHomePatientShowTopicOne.viewHolder holder, int position) {
         TopicPatient topicPatient = list.get(position);
         holder.titleTopic.setText(topicPatient.getTitleTopic());
-        Picasso.get().load(topicPatient.getImageTopic()).placeholder(R.drawable.spinner).error(R.drawable.error).into(holder.imageTopic);
+        Picasso.get().load(topicPatient.getImageTopic()).placeholder(R.drawable.spinner).into(holder.imageTopic);
     }
 
     @Override

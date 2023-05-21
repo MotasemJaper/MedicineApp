@@ -27,8 +27,7 @@ public class AdapterForHomePatientShowTopicTow extends RecyclerView.Adapter<Adap
     public AdapterForHomePatientShowTopicTow() {
     }
 
-    public AdapterForHomePatientShowTopicTow(ShowTopicRecyclerHomePatientTowBinding binding, Context context, List<TopicPatient> list) {
-        this.binding = binding;
+    public AdapterForHomePatientShowTopicTow(Context context, List<TopicPatient> list) {
         this.context = context;
         this.list = list;
     }
@@ -44,7 +43,7 @@ public class AdapterForHomePatientShowTopicTow extends RecyclerView.Adapter<Adap
     public void onBindViewHolder(@NonNull AdapterForHomePatientShowTopicTow.viewHolder holder, int position) {
         TopicPatient topicPatient = list.get(position);
         holder.titleTopic.setText(topicPatient.getTitleTopic());
-        Picasso.get().load(topicPatient.getImageTopic()).placeholder(R.drawable.spinner).error(R.drawable.error).into(holder.imageTopic);
+        Picasso.get().load(topicPatient.getImageTopic()).placeholder(R.drawable.spinner).into(holder.imageTopic);
     }
 
     @Override
