@@ -1,24 +1,33 @@
 package com.medicine.app.Activites;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.medicine.app.Adapter.AdapterForHomeShowTopic;
 import com.medicine.app.Adapter.AdapterViewPagerForBunner;
+import com.medicine.app.Model.TopicPatient;
 import com.medicine.app.R;
 import com.medicine.app.databinding.ActivityHomeForPatientBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kotlin.collections.ArrayDeque;
-
 public class HomeActivityForPatient extends AppCompatActivity {
 
     private ActivityHomeForPatientBinding binding;
     private AdapterViewPagerForBunner pagerForBunner;
     List<Integer> imageList;
+    AdapterForHomeShowTopic adapter;
+    List<TopicPatient> listTopic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +61,41 @@ public class HomeActivityForPatient extends AppCompatActivity {
             }
         });
 
+        adapter = new AdapterForHomeShowTopic(HomeActivityForPatient.this,listTopic);
+        binding.showTopicRecycle.setAdapter(adapter);
+        GridLayoutManager manager = new GridLayoutManager(HomeActivityForPatient.this,2);
+        binding.showTopicRecycle.setLayoutManager(manager);
+        getTopicData();
 
 
+    }
 
 
+    private void getTopicData(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Topic");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    TopicPatient topicPatient = new TopicPatient();
+                    topicPatient.setId(snapshot.child("idTopic")+"");
+                    topicPatient.setFirstName(snapshot.child("firstName")+"");
+                    topicPatient.setMiddleName(snapshot.child("middleName")+"");
+                    topicPatient.setAddress(snapshot.child("address")+"");
+                    topicPatient.setEmail(snapshot.child("email")+"");
+                    topicPatient.setTitleTopic(snapshot.child("nameTopic")+"");
+                    topicPatient.setImageTopic(snapshot.child("imageUrl")+"");
+                    topicPatient.setDetails(snapshot.child("descriptionTopic")+"");
+                    topicPatient.setVideoTopic(snapshot.child("videoUrl")+"");
+                    listTopic.add(topicPatient);
+                    adapter.notifyDataSetChanged();
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-
+            }
+        });
     }
 }

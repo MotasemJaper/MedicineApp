@@ -142,25 +142,23 @@
                 android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:orientation="horizontal"
                     tools:listitem="@layout/show_topic_recycler_home_patient_one"
                     android:id="@+id/showTopicRecycleDoctor"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="165dp"/>
+                    android:layout_height="match_parent"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:orientation="horizontal"
-                    tools:listitem="@layout/show_topic_recycler_home_patient_tow"
-                    android:id="@+id/showTopicRecycle2Doctor"
-                    android:layout_below="@+id/showTopicRecycleDoctor"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="165dp"/>
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    tools:listitem="@layout/show_topic_recycler_home_patient_tow"-->
+<!--                    android:id="@+id/showTopicRecycle2Doctor"-->
+<!--                    android:layout_below="@+id/showTopicRecycleDoctor"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="165dp"/>-->
 
 
 
