@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.HomeActivityForDoctor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_marginStart="25dp"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:text="Welcome Back!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="18dp"
+                android:background="#ffffff"
+                android:src="@drawable/image_notification" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/toolbar2"
+            android:layout_below="@+id/rlToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_marginLeft="25dp"
+                android:textSize="16dp"
+                android:text="Lorem Ipsum is simply dummy text "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_marginTop="35dp"
+                android:textSize="12sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:drawablePadding="10dp"
+                android:drawableStart="@drawable/baseline_search"
+                android:hint="search about topic"
+                android:padding="10dp"
+                android:background="@drawable/edite_stayl"
+                android:layout_below="@+id/txt"
+                android:id="@+id/searchHomeDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imageBennerDoctor"
+                android:layout_width="350dp"
+                android:layout_height="145dp"
+                android:layout_below="@+id/searchHomeDoctor"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp" />
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPagerBannerDoctor"
+                android:layout_width="350dp"
+                android:layout_height="145dp"
+                android:layout_below="@+id/searchHomeDoctor"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp" />
+
+
+            <com.rd.PageIndicatorView
+                android:id="@+id/pageIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageBennerDoctor"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                app:piv_animationType="scale"
+                app:piv_dynamicCount="true"
+                app:piv_interactiveAnimation="true"
+                app:piv_padding="10dp"
+                app:piv_radius="8dp"
+                app:piv_selectedColor="@color/medicine_color"
+                app:piv_unselectedColor="@color/rmady"
+                app:piv_viewPager="@id/viewPagerBanner" />
+
+            <TextView
+                android:id="@+id/forYou"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:layout_marginStart="15dp"
+                android:layout_below="@+id/pageIndicatorView"
+                android:text="My Topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginEnd="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/pageIndicatorView"
+                android:textSize="12sp"
+                android:text="View all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_below="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_below="@+id/toolbar2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/show_topic_recycler_home_patient_one"
+                    android:id="@+id/showTopicRecycleDoctor"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/show_topic_recycler_home_patient_tow"
+                    android:id="@+id/showTopicRecycle2Doctor"
+                    android:layout_below="@+id/showTopicRecycleDoctor"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="165dp"/>
+
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:background="@color/medicine_color"
+        android:id="@+id/btn_add_topic"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/img_float_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

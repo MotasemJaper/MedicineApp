@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.WelcomeActivity">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:id="@+id/liEt"
+        android:layout_margin="36sp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="28sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Welcome to Care"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:maxLines="3"
+            android:text="Lorem Ipsum is simply dummy text  Lorem Ipsum is simply dummy text "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_below="@+id/liEt"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_marginRight="5dp"
+            android:id="@+id/btn_patientId"
+            android:text="Patient"
+            android:background="@drawable/btn_style_green"
+            android:layout_width="161dp"
+            android:layout_height="48dp"/>
+
+        <Button
+            android:background="@drawable/btn_style_white"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            android:id="@+id/btn_doctorId"
+            android:text="Doctor"
+            android:layout_width="161dp"
+            android:layout_height="48dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
