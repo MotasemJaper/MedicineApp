@@ -48,9 +48,9 @@
 
         <Button
             android:gravity="center"
-            android:drawableRight="@drawable/baseline_next_btn"
-            android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
+            android:drawableEnd="@drawable/baseline_next_btn"
+            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
             android:text="Next"
             android:textColor="@color/white"
             android:background="@drawable/btn_style_green"

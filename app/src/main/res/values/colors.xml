@@ -8,6 +8,8 @@
     <color name="rmady">#B3C1C1</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="rmadi">#ACA7A7</color>
+    <color name="red">#8F0707</color>
 
     <color name="medicine_color">#088395</color>
 </resources>

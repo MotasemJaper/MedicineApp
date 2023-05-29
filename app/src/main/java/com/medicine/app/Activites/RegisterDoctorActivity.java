@@ -111,9 +111,11 @@ public class RegisterDoctorActivity extends AppCompatActivity {
         user.put("password", binding.passwordDoctor.getText().toString());
         user.put("address", binding.addressDoctor.getText().toString());
         user.put("birthDoctor", binding.dateOfBirthDoctor.getText().toString());
+        user.put("mobileNumber", binding.mobileNumberDoctor.getText().toString());
+        user.put("imageUrl","");
         user.put("type","Doctor");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("UserDoctor");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
         reference.child(Uid).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

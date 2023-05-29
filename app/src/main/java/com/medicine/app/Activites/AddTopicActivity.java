@@ -31,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.medicine.app.databinding.ActivityAddTopicBinding;
+import com.medicine.app.databinding.ActivityHomeForDoctorBinding;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class AddTopicActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private StorageTask task;
     Uri downloadUri;
-    String firstName, lastName, middleName, email, address;
+    String firstName, lastName, middleName, email, address, imageUser;
     String uId;
 
     @Override
@@ -218,7 +219,23 @@ public class AddTopicActivity extends AppCompatActivity {
         dataTopic.put("lastName",lastName);
         dataTopic.put("address",address);
         dataTopic.put("email",email);
+        dataTopic.put("imageUser",imageUser);
 
+
+        Map<String,Object> noti = new HashMap<>();
+        String idNoti = String.valueOf(System.currentTimeMillis());
+        noti.put("firstName",firstName);
+        noti.put("middleName",middleName);
+        noti.put("lastName",lastName);
+        noti.put("idTopic", idTopic);
+        noti.put("Notifications",firstName+" Add new Topic");
+        noti.put("idNoti",idNoti);
+        noti.put("imageUrl",imageUser);
+        noti.put("dateTopic", idNoti);
+        DatabaseReference not = FirebaseDatabase.getInstance().getReference("Notifications");
+        not.child(idNoti).setValue(noti);
+        HomeActivityForDoctor.binding.notificationsID.setVisibility(View.VISIBLE);
+     //   HomeActivityForPatient.binding.notificationsIDD.setVisibility(View.VISIBLE);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Topic");
         reference.child(idTopic).setValue(dataTopic).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -241,7 +258,7 @@ public class AddTopicActivity extends AppCompatActivity {
 
     }
     private void getUserData(){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("UserDoctor");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
         reference.child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -250,6 +267,7 @@ public class AddTopicActivity extends AppCompatActivity {
                 lastName = snapshot.child("lastName").getValue()+"";
                 email = snapshot.child("email").getValue()+"";
                 address = snapshot.child("address").getValue()+"";
+                imageUser = snapshot.child("imageUrl").getValue()+"";
 
             }
 

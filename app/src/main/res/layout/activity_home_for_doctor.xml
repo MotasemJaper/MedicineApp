@@ -29,13 +29,35 @@
                 android:background="@android:color/transparent"/>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/imageNoti"
+                android:layout_width="28sp"
+                android:layout_height="28sp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
-                android:layout_marginEnd="18dp"
+                android:layout_marginEnd="60dp"
                 android:background="#ffffff"
                 android:src="@drawable/image_notification" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/notificationsID"
+                android:layout_marginTop="10dp"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="60dp"
+                android:background="@drawable/circle_notifications" />
+
+            <ImageButton
+                android:onClick="onMenuButtonClick"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/white"
+                android:src="@drawable/baseline_more_vert"
+                android:id="@+id/moreMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
         </RelativeLayout>
@@ -71,8 +93,9 @@
                 android:layout_height="wrap_content"/>
 
             <ImageView
+                android:scaleType="centerCrop"
                 android:id="@+id/imageBennerDoctor"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="145dp"
                 android:layout_below="@+id/searchHomeDoctor"
                 android:layout_centerInParent="true"
@@ -82,7 +105,7 @@
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPagerBannerDoctor"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="145dp"
                 android:layout_below="@+id/searchHomeDoctor"
                 android:layout_centerInParent="true"
@@ -119,6 +142,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:id="@+id/viewAllDoctor"
                 android:layout_marginEnd="15dp"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/pageIndicatorView"
@@ -143,25 +167,13 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:orientation="horizontal"
-                    tools:listitem="@layout/show_topic_recycler_home_patient_one"
+                    tools:listitem="@layout/show_topic_recycler_home"
                     android:id="@+id/showTopicRecycleDoctor"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="165dp"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:orientation="horizontal"
-                    tools:listitem="@layout/show_topic_recycler_home_patient_tow"
-                    android:id="@+id/showTopicRecycle2Doctor"
-                    android:layout_below="@+id/showTopicRecycleDoctor"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="165dp"/>
-
+                    android:layout_height="match_parent"/>
 
 
             </RelativeLayout>

@@ -25,6 +25,7 @@ public class SkipActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SkipActivity.this, GetStartedActivity.class));
+                finish();
             }
         });
 

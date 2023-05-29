@@ -12,11 +12,13 @@ public class TopicPatient {
     private String details;
     private String imageTopic;
     private String videoTopic;
+    private String timeStamp;
+
 
     public TopicPatient() {
     }
 
-    public TopicPatient(String id, String firstName, String lastName, String middleName, String address, String email, String titleTopic, String details, String imageTopic, String videoTopic) {
+    public TopicPatient(String id, String firstName, String lastName, String middleName, String address, String email, String titleTopic, String details, String imageTopic, String videoTopic, String timeStamp) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +29,7 @@ public class TopicPatient {
         this.details = details;
         this.imageTopic = imageTopic;
         this.videoTopic = videoTopic;
+        this.timeStamp = timeStamp;
     }
 
     public String getId() {
@@ -107,5 +110,13 @@ public class TopicPatient {
 
     public void setVideoTopic(String videoTopic) {
         this.videoTopic = videoTopic;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }

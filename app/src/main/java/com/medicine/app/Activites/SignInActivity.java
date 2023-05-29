@@ -93,7 +93,7 @@ public class SignInActivity extends AppCompatActivity {
     String type = "";
 
     public String getType(final String id) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("UserDoctor").child(id);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User").child(id);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -128,8 +128,6 @@ public class SignInActivity extends AppCompatActivity {
         });
 
         return type;
-
-
     }
 
 

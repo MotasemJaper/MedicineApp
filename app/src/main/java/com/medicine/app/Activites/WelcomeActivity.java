@@ -23,7 +23,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(WelcomeActivity.this, RegisterDoctorActivity.class);
-                i.putExtra("type","doctor");
+                i.putExtra("type","Doctor");
                 startActivity(i);
                 finish();
             }
@@ -33,7 +33,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(new Intent(WelcomeActivity.this, RegisterPatientActivity.class));
-                i.putExtra("type","patient");
+                i.putExtra("type","Patient");
                 startActivity(i);
                 finish();
             }

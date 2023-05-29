@@ -139,7 +139,7 @@
                     android:layout_marginRight="16dp"
                     android:background="@drawable/edite_stayl"
                     android:drawablePadding="10dp"
-                    android:inputType="text"
+                    android:inputType="textLongMessage"
                     android:padding="10dp"
                     android:textColor="@color/black" />
 
